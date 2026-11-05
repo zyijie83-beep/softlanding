@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="zh"
+      data-home="true"
+      data-title-zh="SoftLanding 安落 — 告别之后的安顿"
+      data-title-en="SoftLanding — The after-loss concierge">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SoftLanding 安落 — 告别之后的安顿</title>
+  <meta name="description" content="SoftLanding 安落：一位由 AI 辅助、由人交付的身后事管家。最初的九十天，一位管家，一张清单，一个价格。">
+  <meta name="theme-color" content="#121719">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23121719'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23A47E4E' stroke-width='1.2'/%3E%3Cpath d='M32 15v34M22 38c4-1 7-4 10-9 3 5 6 8 10 9' fill='none' stroke='%23A47E4E' stroke-width='1.2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
+  <script>
+    // Set language before paint to avoid a flash of both languages.
+    try {
+      var saved = localStorage.getItem('cw-lang');
+      var query = new URLSearchParams(location.search).get('lang');
+      var lang = query || saved || (navigator.language && navigator.language.toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
+      document.documentElement.lang = lang;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main"><span class="en">Skip to content</span><span class="zh">跳到正文</span></a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="SoftLanding 安落">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="14.5" stroke="currentColor" stroke-width="1"/>
+            <path d="M20 8.5v23M13.5 23c2.8-.7 4.8-2.6 6.5-6 1.7 3.4 3.7 5.3 6.5 6" stroke="currentColor" stroke-width="1"/>
+          </svg>
+        </span>
+        <span class="brand__name">SoftLanding</span>
+        <span class="brand__cn">安落</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#gap"><span class="en">The gap</span><span class="zh">缺口</span></a>
+        <a href="#approach"><span class="en">Approach</span><span class="zh">方式</span></a>
+        <a href="#journey"><span class="en">Journey</span><span class="zh">流程</span></a>
+        <a href="#services"><span class="en">Services</span><span class="zh">服务</span></a>
+        <a href="#partners"><span class="en">Partners</span><span class="zh">合作</span></a>
+        <a href="#questions"><span class="en">Questions</span><span class="zh">问答</span></a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang" role="group" aria-label="Language">
+          <button class="lang__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+          <span class="lang__sep" aria-hidden="true">/</span>
+          <button class="lang__btn" type="button" data-lang="zh" aria-pressed="true">中文</button>
+        </div>
+        <a class="btn btn--ghost nav__cta" href="#contact">
+          <span class="en">Begin</span><span class="zh">预约</span>
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile" id="mobile-menu" aria-hidden="true">
+    <div class="mobile__top">
+      <span class="mobile__label"><span class="en">Menu</span><span class="zh">目录</span></span>
+      <button class="mobile__close" type="button" aria-label="Close menu">×</button>
+    </div>
+    <nav class="mobile__links" aria-label="Mobile">
+      <a href="#gap"><span class="en">The gap</span><span class="zh">缺口</span><span class="mobile__num">01</span></a>
+      <a href="#approach"><span class="en">Approach</span><span class="zh">方式</span><span class="mobile__num">02</span></a>
+      <a href="#journey"><span class="en">Journey</span><span class="zh">流程</span><span class="mobile__num">03</span></a>
+      <a href="#services"><span class="en">Services</span><span class="zh">服务</span><span class="mobile__num">04</span></a>
+      <a href="#ai"><span class="en">Technology</span><span class="zh">技术</span><span class="mobile__num">05</span></a>
+      <a href="#partners"><span class="en">Partners</span><span class="zh">合作</span><span class="mobile__num">06</span></a>
+      <a href="#trust"><span class="en">Trust</span><span class="zh">信任</span><span class="mobile__num">07</span></a>
+      <a href="#questions"><span class="en">Questions</span><span class="zh">问答</span><span class="mobile__num">08</span></a>
+      <a href="#contact"><span class="en">Begin</span><span class="zh">预约</span><span class="mobile__num">09</span></a>
+    </nav>
+    <div class="mobile__foot">
+      <p><span class="en">Shanghai · by referral and partner introduction</span><span class="zh">上海 · 通过转介与合作机构</span></p>
+      <p><a href="mailto:care@softlanding.co">care@softlanding.co</a></p>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <p class="kicker hero__kicker">
+            <span class="kicker__num">00</span>
+            <span class="kicker__rule" aria-hidden="true"></span>
+            <span class="en">Shanghai · Est. 2026</span><span class="zh">上海 · 始于 2026</span>
+          </p>
+          <h1 class="hero__title">
+            <span class="line"><span class="en">The funeral takes three days.</span><span class="zh">葬礼只有三天。</span></span>
+            <span class="line"><span class="en">The admin takes three hundred.</span><span class="zh">身后事，却要三百天。</span></span>
+          </h1>
+          <p class="hero__sub">
+            <span class="en">An AI-assisted, human-delivered concierge for the first ninety days after a death. One guide, one checklist, one price.</span>
+            <span class="zh">一位由 AI 辅助、由人交付的身后事管家。最初的九十天，一位管家，一张清单，一个价格。</span>
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--solid" href="#contact">
+              <span class="en">Request a guide</span><span class="zh">预约一位管家</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost" href="#partners">
+              <span class="en">For partners</span><span class="zh">机构合作</span>
+            </a>
+          </div>
+          <p class="hero__meta">
+            <span class="en">By referral and partner introduction · Shanghai</span>
+            <span class="zh">通过转介与合作机构 · 上海</span>
+          </p>
+        </div>
+
+        <figure class="hero__figure" aria-hidden="true">
+          <svg class="arch" viewBox="0 0 420 560" fill="none">
+            <defs>
+              <linearGradient id="archGrad" x1="60" y1="40" x2="360" y2="560" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#C2A173" stop-opacity=".08"/>
+                <stop offset=".48" stop-color="#C2A173" stop-opacity=".9"/>
+                <stop offset="1" stop-color="#C2A173" stop-opacity=".12"/>
+              </linearGradient>
+            </defs>
+            <path class="arch__line" d="M58 548V252C58 132 146 52 210 52s152 80 152 200v296" stroke="url(#archGrad)" stroke-width="1.1"/>
+            <path class="arch__line arch__line--inner" d="M110 548V262c0-82 44-140 100-140s100 58 100 140v286" stroke="#C2A173" stroke-opacity=".26" stroke-width="1"/>
+            <line x1="210" y1="124" x2="210" y2="548" stroke="#C2A173" stroke-opacity=".16"/>
+            <circle cx="210" cy="330" r="3.4" fill="#C2A173" fill-opacity=".85"/>
+            <path d="M158 548h104" stroke="#C2A173" stroke-opacity=".35"/>
+          </svg>
+          <figcaption>
+            <span class="en">A quiet way through</span>
+            <span class="zh">一条安静的路</span>
+          </figcaption>
+          <span class="hero__figure-index">90</span>
+        </figure>
+      </div>
+
+      <div class="wrap hero__foot">
+        <span><span class="en">A coordination layer — not a funeral home, a law firm, or a therapist.</span><span class="zh">一个协调层——不是殡葬公司、律所或心理咨询机构。</span></span>
+        <span class="hero__foot-right"><span class="en">Scroll</span><span class="zh">向下</span> <span class="hero__line" aria-hidden="true"></span></span>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto" aria-label="Manifesto">
+      <div class="wrap">
+        <p class="manifesto__label"><span class="en">A principle</span><span class="zh">原则</span></p>
+        <p class="manifesto__text">
+          <span class="en">We do not replace the funeral director, the lawyer, or the therapist. We coordinate them — so a family can grieve instead of file.</span>
+          <span class="zh">我们不替代殡葬师、律师或心理咨询师。我们把他们协调在一起——让家人可以哀悼，而不是不停地跑手续。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 01 THE GAP -->
+    <section class="section" id="gap">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="kicker"><span class="kicker__num">01</span><span class="kicker__rule" aria-hidden="true"></span><span class="en">The gap</span><span class="zh">缺口</span></p>
+            <h2 class="reveal">
+              <span class="en">No one is trained<br>for the paperwork.</span>
+              <span class="zh">没有人教过我们，<br>如何料理身后事。</span>
+            </h2>
+          </div>
+          <p class="section__intro reveal">
+            <span class="en">A life leaves behind more than memories: certificates, banks, insurers, pensions, subscriptions, accounts, cloud photographs. Families do this while grieving — often from another city, usually without a map.</span>
+            <span class="zh">一个人走后，留下的不只是回忆：证明、银行、保险、养老金、订阅、账号、云端的照片。家人要在悲痛里处理这些事，常常还在另一座城市，而且没有一张地图。</span>
+          </p>
+        </div>
+
+        <div class="gap__grid">
+          <div class="gap__copy reveal">
+            <p class="lede">
+              <span class="en">The funeral is a ceremony. The months after are a project — with deadlines, institutions, and no project manager.</span>
+              <span class="zh">葬礼是一场仪式。之后的几个月，却是一个项目——有截止日期，有无数机构，却没有项目经理。</span>
+            </p>
+            <p>
+              <span class="en">Miss a deadline and money is lost. Miss an account and it renews for years. Miss a document and the family starts again. The work is invisible until it is overdue.</span>
+              <span class="zh">错过一个期限，钱就没了。漏掉一个账户，它可能自动续费好几年。少一份文件，全家就得从头再来。这些事平时看不见，直到逾期才浮现。</span>
+            </p>
+          </div>
+
+          <aside class="quote-card reveal" style="--d:.1s">
+            <span class="quote-card__mark" aria-hidden="true">“</span>
+            <blockquote>
+              <span class="en">I didn’t cry at the funeral. I broke down when I saw the subscription renewal.</span>
+              <span class="zh">葬礼上我没哭。看到那条自动续费提醒时，我崩溃了。</span>
+            </blockquote>
+            <footer>
+              <span class="en">Daughter, 42 · Shanghai<br><small>Composite quote from 15 family interviews, 2025.</small></span>
+              <span class="zh">一位女儿，42 岁 · 上海<br><small>基于 2025 年 15 个家庭访谈的综合引语。</small></span>
+            </footer>
+          </aside>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat">
+            <span class="stat__num">100+</span>
+            <span class="stat__label"><span class="en">documents and tasks</span><span class="zh">份文件与事务</span></span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">3–12</span>
+            <span class="stat__label"><span class="en">months to close</span><span class="zh">个月才能结清</span></span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">¥10k+</span>
+            <span class="stat__label"><span class="en">lost to missed claims</span><span class="zh">因漏赔而损失</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 APPROACH -->
+    <section class="section section--paper" id="approach">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="kicker"><span class="kicker__num">02</span><span class="kicker__rule" aria-hidden="true"></span><span class="en">The approach</span><span class="zh">方式</span></p>
+            <h2 class="reveal">
+              <span class="en">Order,<br>without haste.</span>
+              <span class="zh">不慌不忙，<br>把事安顿好。</span>
+            </h2>
+          </div>
+          <p class="section__intro reveal">
+            <span class="en">We turn the first ninety days into five clear stages. One case manager owns the journey. AI handles the repetition. Nothing is sent or signed without a human.</span>
+            <span class="zh">我们把最初的九十天分成五个清楚的阶段。一位案件管家负责整个流程。AI 处理重复劳动。任何文件，未经人工确认，不会发出，也不会签署。</span>
+          </p>
+        </div>
+
+        <div class="principles">
+          <article class="principle reveal">
+            <span class="principle__num">01</span>
+            <h3><span class="en">One owner</span><span class="zh">一位管家</span></h3>
+            <p><span class="en">A single named person, not a call centre. Someone who knows the family’s file by heart.</span><span class="zh">一位有名有姓的管家，不是一个呼叫中心。他记得住这个家庭的每一页材料。</span></p>
+          </article>
+          <article class="principle reveal" style="--d:.08s">
+            <span class="principle__num">02</span>
+            <h3><span class="en">One checklist</span><span class="zh">一张清单</span></h3>
+            <p><span class="en">One hundred tasks, sequenced, with owners and deadlines. No duplicate calls. No forgotten accounts.</span><span class="zh">一百多项事务，按顺序排好，责任到人，日期清楚。不重复打电话，不漏掉账户。</span></p>
+          </article>
+          <article class="principle reveal" style="--d:.16s">
+            <span class="principle__num">03</span>
+            <h3><span class="en">One price</span><span class="zh">一个价格</span></h3>
+            <p><span class="en">A fixed fee, agreed at the start. No hourly billing, no surprises, no pressure.</span><span class="zh">开始前就说好的固定费用。不按小时计费，没有意外账单，也没有催促。</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 JOURNEY -->
+    <section class="section" id="journey">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="kicker"><span class="kicker__num">03</span><span class="kicker__rule" aria-hidden="true"></span><span class="en">The journey</span><span class="zh">流程</span></p>
+            <h2 class="reveal">
+              <span class="en">Ninety days,<br>five stages.</span>
+              <span class="zh">九十天，<br>五个阶段。</span>
+            </h2>
+          </div>
+          <p class="section__intro reveal">
+            <span class="en">A fixed rhythm, adapted to each family. The dates are promises, not estimates.</span>
+            <span class="zh">固定的节奏，按每个家庭调整。日期是承诺，不是估算。</span>
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="stage reveal">
+            <span class="stage__dot" aria-hidden="true"></span>
+            <span class="stage__num">01</span>
+            <span class="stage__day"><span class="en">Day 0–2</span><span class="zh">第 0–2 天</span></span>
+            <h3><span class="en">Notice</span><span class="zh">通知</span></h3>
+            <p><span class="en">One call. One case manager. Documents collected, a first map drawn.</span><span class="zh">一通电话。一位管家。收集文件，画出第一张地图。</span></p>
+            <div class="stage__roles">
+              <span><em>AI</em> <span class="en">scan &amp; extract</span><span class="zh">扫描与提取</span></span>
+              <span><em>Human</em> <span class="en">call &amp; comfort</span><span class="zh">通话与安抚</span></span>
+            </div>
+          </article>
+
+          <article class="stage reveal" style="--d:.06s">
+            <span class="stage__dot" aria-hidden="true"></span>
+            <span class="stage__num">02</span>
+            <span class="stage__day"><span class="en">Day 3–7</span><span class="zh">第 3–7 天</span></span>
+            <h3><span class="en">Map</span><span class="zh">梳理</span></h3>
+            <p><span class="en">One hundred tasks become a ninety-day plan with owners and deadlines.</span><span class="zh">一百多项事务，变成一张九十天计划，责任到人，日期清楚。</span></p>
+            <div class="stage__roles">
+              <span><em>AI</em> <span class="en">task graph</span><span class="zh">任务图谱</span></span>
+              <span><em>Human</em> <span class="en">prioritise</span><span class="zh">排优先级</span></span>
+            </div>
+          </article>
+
+          <article class="stage reveal" style="--d:.12s">
+            <span class="stage__dot" aria-hidden="true"></span>
+            <span class="stage__num">03</span>
+            <span class="stage__day"><span class="en">Day 8–30</span><span class="zh">第 8–30 天</span></span>
+            <h3><span class="en">Act</span><span class="zh">办理</span></h3>
+            <p><span class="en">Institutions notified. Claims filed. Accounts closed. Eighty percent complete.</span><span class="zh">通知机构，提交理赔，关闭账户。完成八成。</span></p>
+            <div class="stage__roles">
+              <span><em>AI</em> <span class="en">letters &amp; forms</span><span class="zh">函件与表格</span></span>
+              <span><em>Human</em> <span class="en">calls &amp; visits</span><span class="zh">电话与上门</span></span>
+            </div>
+          </article>
+
+          <article class="stage reveal" style="--d:.18s">
+            <span class="stage__dot" aria-hidden="true"></span>
+            <span class="stage__num">04</span>
+            <span class="stage__day"><span class="en">Day 31–60</span><span class="zh">第 31–60 天</span></span>
+            <h3><span class="en">Resolve</span><span class="zh">收尾</span></h3>
+            <p><span class="en">Disputes, missing documents, legal referrals — handled with care.</span><span class="zh">争议、缺失的文件、法律转介——一件件处理。</span></p>
+            <div class="stage__roles">
+              <span><em>AI</em> <span class="en">flags &amp; drafts</span><span class="zh">提示与草稿</span></span>
+              <span><em>Human</em> <span class="en">negotiate</span><span class="zh">协商</span></span>
+            </div>
+          </article>
+
+          <article class="stage reveal" style="--d:.24s">
+            <span class="stage__dot" aria-hidden="true"></span>
+            <span class="stage__num">05</span>
+            <span class="stage__day"><span class="en">Day 61–90</span><span class="zh">第 61–90 天</span></span>
+            <h3><span class="en">Aftercare</span><span class="zh">安置</span></h3>
+            <p><span class="en">A final report, a digital archive, and a check-in on day ninety.</span><span class="zh">一份结案报告，一份数字档案，第九十天的一次回访。</span></p>
+            <div class="stage__roles">
+              <span><em>AI</em> <span class="en">archive</span><span class="zh">归档</span></span>
+              <span><em>Human</em> <span class="en">closure call</span><span class="zh">回访</span></span>
+            </div>
+          </article>
+        </div>
+
+        <p class="sla reveal">
+          <span class="en">Our promise: 80% of tasks closed in 30 days · a final report by day 90 · NPS above 60.</span>
+          <span class="zh">我们的承诺：30 天内完成八成事务 · 第 90 天交付结案报告 · NPS 高于 60。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 04 SERVICES -->
+    <section class="section section--paper" id="services">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="kicker"><span class="kicker__num">04</span><span class="kicker__rule" aria-hidden="true"></span><span class="en">Services</span><span class="zh">服务</span></p>
+            <h2 class="reveal">
+              <span class="en">Three ways<br>to begin.</span>
+              <span class="zh">三种开始<br>的方式。</span>
+            </h2>
+          </div>
+          <p class="section__intro reveal">
+            <span class="en">Before, after, or alongside an institution. The same standard of care, at three different moments.</span>
+            <span class="zh">生前、身后，或与机构一起。三个不同的时刻，同一种照料标准。</span>
+          </p>
+        </div>
+
+        <div class="services">
+          <article class="service reveal">
+            <p class="service__eyebrow"><span class="en">Before</span><span class="zh">生前</span></p>
+            <h3><span class="en">Life File</span><span class="zh">人生档案</span></h3>
+            <p class="service__desc"><span class="en">A secure vault for accounts, policies, documents and wishes. So your family never has to guess.</span><span class="zh">一个加密的保险箱：账号、保单、文件与心愿。让家人不必靠猜。</span></p>
+            <ul>
+              <li><span class="en">Encrypted vault</span><span class="zh">加密保险箱</span></li>
+              <li><span class="en">One-page family map</span><span class="zh">一页家庭地图</span></li>
+              <li><span class="en">Annual review</span><span class="zh">年度复核</span></li>
+            </ul>
+            <p class="service__price"><span class="en">Free · ¥199/year · ¥499 lifetime</span><span class="zh">免费 · ¥199/年 · ¥499 终身</span></p>
+          </article>
+
+          <article class="service service--featured reveal" style="--d:.08s">
+            <p class="service__eyebrow"><span class="en">After</span><span class="zh">身后</span></p>
+            <h3><span class="en">Concierge</span><span class="zh">全程管家</span></h3>
+            <p class="service__desc"><span class="en">One case manager, one hundred-task checklist, ninety days. Standard or premium.</span><span class="zh">一位管家，一张百项清单，九十天。标准版或尊享版。</span></p>
+            <ul>
+              <li><span class="en">Named case manager</span><span class="zh">专属管家</span></li>
+              <li><span class="en">Institution coordination</span><span class="zh">机构协调</span></li>
+              <li><span class="en">Final report &amp; archive</span><span class="zh">结案报告与档案</span></li>
+            </ul>
+            <p class="service__price"><span class="en">¥2,999 standard · ¥5,999 premium</span><span class="zh">标准 ¥2,999 · 尊享 ¥5,999</span></p>
+          </article>
+
+          <article class="service reveal" style="--d:.16s">
+            <p class="service__eyebrow"><span class="en">Together</span><span class="zh">合作</span></p>
+            <h3><span class="en">For Business</span><span class="zh">机构服务</span></h3>
+            <p class="service__desc"><span class="en">White-label aftercare for insurers, funeral homes, banks and employers.</span><span class="zh">为保险、殡葬、银行与企业提供白标身后事服务。</span></p>
+            <ul>
+              <li><span class="en">Co-branded service</span><span class="zh">联合品牌服务</span></li>
+              <li><span class="en">Case dashboard</span><span class="zh">案件看板</span></li>
+              <li><span class="en">Quarterly review</span><span class="zh">季度复盘</span></li>
+            </ul>
+            <p class="service__price"><span class="en">From ¥1,200 per case</span><span class="zh">¥1,200/案起</span></p>
+          </article>
+        </div>
+
+        <p class="services__note reveal">
+          <span class="en">We are not a law firm, a funeral home, or a therapist. We are the coordination layer between them.</span>
+          <span class="zh">我们不是律所、殡葬公司或心理咨询机构。我们是它们之间的协调层。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 05 AI -->
+    <section class="section section--dark" id="ai">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="kicker kicker--light"><span class="kicker__num">05</span><span class="kicker__rule" aria-hidden="true"></span><span class="en">Technology</span><span class="zh">技术</span></p>
+            <h2 class="reveal">
+              <span class="en">AI does the paperwork.<br>Humans do the caring.</span>
+              <span class="zh">AI 处理文书。<br>人负责陪伴。</span>
+            </h2>
+          </div>
+          <p class="section__intro reveal">
+            <span class="en">Four quiet systems work behind the case manager. They reduce twelve hours of admin to seven — and they never speak to a family on their own.</span>
+            <span class="zh">四套安静的系统在管家身后工作。它们把十二小时的文书工作压缩到七小时——但它们从不独自面对一个家庭。</span>
+          </p>
+        </div>
+
+        <div class="modules">
+          <article class="module reveal">
+            <span class="module__num">01</span>
+            <h3><span class="en">Digital Life Map</span><span class="zh">数字生活地图</span></h3>
+            <p><span class="en">Reads authorised statements and email exports. Finds the accounts a family forgets.</span><span class="zh">读取授权范围内的账单与邮件导出，找到家人已经忘记的账户。</span></p>
+          </article>
+          <article class="module reveal" style="--d:.06s">
+            <span class="module__num">02</span>
+            <h3><span class="en">Document Copilot</span><span class="zh">文书副驾</span></h3>
+            <p><span class="en">Reads, fills, drafts and checks — with a human approving every send.</span><span class="zh">识别、填写、起草、核对——每一次发出，都有人批准。</span></p>
+          </article>
+          <article class="module reveal" style="--d:.12s">
+            <span class="module__num">03</span>
+            <h3><span class="en">Institution Router</span><span class="zh">机构路由器</span></h3>
+            <p><span class="en">Knows what each bank, insurer and platform requires — and why claims get rejected.</span><span class="zh">知道每家银行、保险公司与平台要什么——也知道理赔为什么被拒。</span></p>
+          </article>
+          <article class="module reveal" style="--d:.18s">
+            <span class="module__num">04</span>
+            <h3><span class="en">Case Manager Copilot</span><span class="zh">管家副驾</span></h3>
+            <p><span class="en">Prepares the next step, the summary and the words. Never takes the step alone.</span><span class="zh">准备下一步、摘要与措辞。但从不独自迈出那一步。</span></p>
+          </article>
+        </div>
+
+        <p class="ai__note reveal">
+          <span class="en">No AI legal advice. No AI therapy. No digital resurrection. Every output is reviewed by a human.</span>
+          <span class="zh">AI 不提供法律意见，不做心理治疗，不做数字复活。每一份输出，都有人复核。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 06 PARTNERS -->
+    <section class="section" id="partners">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="kicker"><span class="kicker__num">06</span><span class="kicker__rule" aria-hidden="true"></span><span class="en">Partners</span><span class="zh">合作</span></p>
+            <h2 class="reveal">
+              <span class="en">A service your clients<br>already need.</span>
+              <span class="zh">一项你的客户<br>已经在需要的服务。</span>
+            </h2>
+          </div>
+          <p class="section__intro reveal">
+            <span class="en">Insurers, funeral homes, banks and employers already own the moment of trust. SoftLanding gives them a dignified aftercare layer — white-label, measurable, and ready in ninety days.</span>
+            <span class="zh">保险、殡葬、银行与企业，已经站在信任发生的那一刻。安落为它们提供一层体面的身后事服务——可白标、可衡量，九十天即可上线。</span>
+          </p>
+        </div>
+
+        <div class="partners">
+          <article class="partner reveal">
+            <span class="partner__num">01</span>
+            <h3><span class="en">Insurers</span><span class="zh">保险</span></h3>
+            <p><span class="en">A dignified claims aftercare that protects NPS and renewals.</span><span class="zh">体面的理赔后服务，守住 NPS 与续保。</span></p>
+          </article>
+          <article class="partner reveal" style="--d:.06s">
+            <span class="partner__num">02</span>
+            <h3><span class="en">Funeral homes</span><span class="zh">殡葬</span></h3>
+            <p><span class="en">Aftercare that extends your care beyond the ceremony.</span><span class="zh">把关怀延伸到葬礼之后。</span></p>
+          </article>
+          <article class="partner reveal" style="--d:.12s">
+            <span class="partner__num">03</span>
+            <h3><span class="en">Banks &amp; wealth</span><span class="zh">银行与财富</span></h3>
+            <p><span class="en">Estate coordination, without the backlog and the repeat calls.</span><span class="zh">遗产协调，不再积压，不再反复来电。</span></p>
+          </article>
+          <article class="partner reveal" style="--d:.18s">
+            <span class="partner__num">04</span>
+            <h3><span class="en">Employers</span><span class="zh">企业</span></h3>
+            <p><span class="en">Bereavement support that actually helps an employee return to work.</span><span class="zh">真正有用的丧亲支持，让员工能回到工作。</span></p>
+          </article>
+        </div>
+
+        <div class="pilot reveal">
+          <div class="pilot__metrics">
+            <div><strong>90</strong><span><span class="en">days to launch</span><span class="zh">天上线</span></span></div>
+            <div><strong>30</strong><span><span class="en">cases in the pilot</span><span class="zh">个试点案件</span></span></div>
+            <div><strong>1</strong><span><span class="en">partner to begin</span><span class="zh">家伙伴即可开始</span></span></div>
+          </div>
+          <a class="btn btn--line" href="#contact">
+            <span class="en">Request a partner brief</span><span class="zh">索取合作方案</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 TRUST -->
+    <section class="section section--paper" id="trust">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="kicker"><span class="kicker__num">07</span><span class="kicker__rule" aria-hidden="true"></span><span class="en">Trust</span><span class="zh">信任</span></p>
+            <h2 class="reveal">
+              <span class="en">Handled with care.<br>And with proof.</span>
+              <span class="zh">用心，<br>也经得起检查。</span>
+            </h2>
+          </div>
+          <p class="section__intro reveal">
+            <span class="en">A family in grief should not have to audit a vendor. So we write the rules down, and we keep them.</span>
+            <span class="zh">一个正在哀悼的家庭，不该还要去审查服务商。所以我们把规则写下来，并且做到。</span>
+          </p>
+        </div>
+
+        <div class="trust__grid">
+          <div class="commitments">
+            <article class="commit reveal">
+              <span class="commit__num">01</span>
+              <h3><span class="en">Consent first</span><span class="zh">先征得同意</span></h3>
+              <p><span class="en">We work for the family, with the family’s written consent. Always.</span><span class="zh">我们为家庭工作，以家庭的书面同意为前提。始终如此。</span></p>
+            </article>
+            <article class="commit reveal" style="--d:.06s">
+              <span class="commit__num">02</span>
+              <h3><span class="en">Least access</span><span class="zh">最小权限</span></h3>
+              <p><span class="en">The minimum access needed, encrypted, and deleted after the case.</span><span class="zh">只取必要的权限，全程加密，结案后删除。</span></p>
+            </article>
+            <article class="commit reveal" style="--d:.12s">
+              <span class="commit__num">03</span>
+              <h3><span class="en">Human review</span><span class="zh">人工复核</span></h3>
+              <p><span class="en">No letter, form or payment leaves without a person’s approval.</span><span class="zh">任何函件、表格或付款，未经人工批准不会发出。</span></p>
+            </article>
+            <article class="commit reveal" style="--d:.18s">
+              <span class="commit__num">04</span>
+              <h3><span class="en">Clear boundaries</span><span class="zh">边界清楚</span></h3>
+              <p><span class="en">Legal, medical and grief counselling are referred to licensed partners.</span><span class="zh">法律、医疗与哀伤辅导，转介给有资质的伙伴。</span></p>
+            </article>
+          </div>
+
+          <aside class="seal-wrap reveal" style="--d:.1s">
+            <div class="seal" aria-hidden="true">
+              <span class="seal__ring"></span>
+              <span class="seal__mark">SL</span>
+              <span class="seal__cn">安落</span>
+            </div>
+            <p><span class="en">Shanghai · 2026</span><span class="zh">上海 · 2026</span></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERLUDE -->
+    <section class="interlude" aria-label="The SoftLanding principle">
+      <div class="wrap">
+        <p class="interlude__label"><span class="en">The SoftLanding principle</span><span class="zh">安落的原则</span></p>
+        <blockquote class="interlude__quote reveal">
+          <span class="en">The funeral takes three days.<br>The admin takes three hundred.<br><em>We are here for the three hundred.</em></span>
+          <span class="zh">葬礼只有三天。<br>身后事，却有三百天。<br><em>我们为那三百天而来。</em></span>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 08 QUESTIONS -->
+    <section class="section" id="questions">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="kicker"><span class="kicker__num">08</span><span class="kicker__rule" aria-hidden="true"></span><span class="en">Questions</span><span class="zh">问答</span></p>
+            <h2 class="reveal">
+              <span class="en">A few things<br>families ask.</span>
+              <span class="zh">家属常问的<br>几件事。</span>
+            </h2>
+          </div>
+          <p class="section__intro reveal">
+            <span class="en">If your question is not here, write to us. A person will answer — not a bot.</span>
+            <span class="zh">如果这里没有你的问题，写给我们。回复你的是一个人，不是机器人。</span>
+          </p>
+        </div>
+
+        <div class="faq">
+          <div class="faq__item reveal">
+            <button class="faq__q" type="button" aria-expanded="false">
+              <span><span class="en">When should I call?</span><span class="zh">什么时候该联系你们？</span></span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p><span class="en">Ideally within 48 hours of a death. If it has been months, we can still help — most files can be rebuilt.</span><span class="zh">最好在亲人离世后 48 小时内。即使已经过去几个月，我们仍然可以帮忙——大多数材料都可以重新整理。</span></p>
+            </div>
+          </div>
+
+          <div class="faq__item reveal">
+            <button class="faq__q" type="button" aria-expanded="false">
+              <span><span class="en">Do you replace a lawyer?</span><span class="zh">你们能替代律师吗？</span></span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p><span class="en">No. We prepare, coordinate and accompany. Legal advice and notarisation are handled by licensed partners.</span><span class="zh">不能。我们做准备、协调与陪同。法律意见与公证，由有资质的伙伴处理。</span></p>
+            </div>
+          </div>
+
+          <div class="faq__item reveal">
+            <button class="faq__q" type="button" aria-expanded="false">
+              <span><span class="en">How much does it cost?</span><span class="zh">费用是多少？</span></span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p><span class="en">Standard ¥2,999; premium ¥5,999; partner cases from ¥1,200. A fixed fee, agreed before we begin. No hourly billing.</span><span class="zh">标准 ¥2,999；尊享 ¥5,999；机构案件 ¥1,200 起。开始前说好的固定费用，不按小时计费。</span></p>
+            </div>
+          </div>
+
+          <div class="faq__item reveal">
+            <button class="faq__q" type="button" aria-expanded="false">
+              <span><span class="en">Is my data safe?</span><span class="zh">我的数据安全吗？</span></span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p><span class="en">Encrypted, least-access, deleted after the case. We never sell data, and we never train public models on a family’s file.</span><span class="zh">加密、最小权限、结案删除。我们绝不出售数据，也绝不用一个家庭的材料训练公共模型。</span></p>
+            </div>
+          </div>
+
+          <div class="faq__item reveal">
+            <button class="faq__q" type="button" aria-expanded="false">
+              <span><span class="en">Do you serve families outside Shanghai?</span><span class="zh">上海以外可以服务吗？</span></span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p><span class="en">We start in Shanghai. For document-heavy cases, remote support is available nationwide; on-site visits are arranged case by case.</span><span class="zh">我们从上海开始。以文件为主的事务，可全国远程支持；需要上门的，按案件单独安排。</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 CONTACT -->
+    <section class="section section--paper" id="contact">
+      <div class="wrap contact">
+        <div class="contact__copy">
+          <p class="kicker"><span class="kicker__num">09</span><span class="kicker__rule" aria-hidden="true"></span><span class="en">Begin</span><span class="zh">开始</span></p>
+          <h2 class="reveal">
+            <span class="en">Tell us what happened.<br>We’ll tell you what comes next.</span>
+            <span class="zh">告诉我们发生了什么。<br>我们告诉你下一步。</span>
+          </h2>
+          <p class="reveal">
+            <span class="en">A short note is enough. A case manager will reply within one business day. No automated calls, no sales script.</span>
+            <span class="zh">几句话就够。一位管家会在一个工作日内回复。没有自动电话，没有推销话术。</span>
+          </p>
+          <div class="contact__details reveal">
+            <div>
+              <span class="contact__label"><span class="en">Write</span><span class="zh">写信</span></span>
+              <a href="mailto:care@softlanding.co">care@softlanding.co</a>
+            </div>
+            <div>
+              <span class="contact__label"><span class="en">Visit</span><span class="zh">来访</span></span>
+              <span><span class="en">By appointment · Shanghai</span><span class="zh">预约制 · 上海</span></span>
+            </div>
+          </div>
+          <p class="contact__emergency">
+            <span class="en">If this is an emergency, please call your local emergency number first.</span>
+            <span class="zh">如有紧急情况，请先拨打当地急救电话。</span>
+          </p>
+        </div>
+
+        <form class="form reveal" id="contact-form" name="contact" method="POST" action="/thank-you.html"
+              data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <p class="form__bot" hidden>
+            <label>Don’t fill this out: <input name="bot-field"></label>
+          </p>
+          <div class="field">
+            <label for="name"><span class="en">Your name</span><span class="zh">你的称呼</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required
+                   data-ph-en="How should we address you?" data-ph-zh="我们该怎么称呼你？">
+          </div>
+          <div class="field">
+            <label for="email"><span class="en">Email or phone</span><span class="zh">邮箱或电话</span></label>
+            <input id="email" name="email" type="text" autocomplete="email" required
+                   data-ph-en="So we can reply" data-ph-zh="方便我们回复">
+          </div>
+          <div class="field">
+            <label for="role"><span class="en">I am writing as</span><span class="zh">我的身份</span></label>
+            <select id="role" name="role" required>
+              <option value="family" data-en="A family member" data-zh="一位家属">A family member / 一位家属</option>
+              <option value="partner" data-en="A partner institution" data-zh="合作机构">A partner institution / 合作机构</option>
+              <option value="other" data-en="Something else" data-zh="其他">Something else / 其他</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message"><span class="en">What happened</span><span class="zh">发生了什么</span></label>
+            <textarea id="message" name="message" rows="4" required
+                      data-ph-en="A few lines are enough. There is no right way to say it."
+                      data-ph-zh="几句话就够。没有标准的说法。"></textarea>
+          </div>
+          <button class="btn btn--solid form__submit" type="submit">
+            <span class="en">Send a quiet note</span><span class="zh">发送</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </button>
+          <p class="form__note">
+            <span class="en">We reply within one business day. Your note is treated as confidential. <a href="privacy.html">Privacy</a>.</span>
+            <span class="zh">一个工作日内回复。你的来信会被保密处理。<a href="privacy.html">隐私说明</a>。</span>
+          </p>
+          <p class="form__error" id="form-error" hidden>
+            <span class="en">Something went wrong. Please write to <a href="mailto:care@softlanding.co">care@softlanding.co</a>.</span>
+            <span class="zh">发送失败，请直接写信到 <a href="mailto:care@softlanding.co">care@softlanding.co</a>。</span>
+          </p>
+          <div class="form__success" id="form-success" hidden>
+            <p class="form__success-title"><span class="en">Thank you.</span><span class="zh">谢谢你。</span></p>
+            <p><span class="en">A case manager will reply within one business day.</span><span class="zh">一位管家会在一个工作日内回复。</span></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="brand brand--footer" href="#top" aria-label="SoftLanding 安落">
+            <span class="brand__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="14.5" stroke="currentColor" stroke-width="1"/>
+                <path d="M20 8.5v23M13.5 23c2.8-.7 4.8-2.6 6.5-6 1.7 3.4 3.7 5.3 6.5 6" stroke="currentColor" stroke-width="1"/>
+              </svg>
+            </span>
+            <span class="brand__name">SoftLanding</span>
+            <span class="brand__cn">安落</span>
+          </a>
+          <p><span class="en">The after-loss concierge.<br>A softer landing, after a fall.</span><span class="zh">告别之后的安顿。<br>坠落之后，更轻的着陆。</span></p>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__label"><span class="en">Services</span><span class="zh">服务</span></p>
+          <a href="#services"><span class="en">Life File</span><span class="zh">人生档案</span></a>
+          <a href="#services"><span class="en">Concierge</span><span class="zh">全程管家</span></a>
+          <a href="#partners"><span class="en">For Business</span><span class="zh">机构服务</span></a>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__label"><span class="en">Company</span><span class="zh">关于</span></p>
+          <a href="#approach"><span class="en">Approach</span><span class="zh">方式</span></a>
+          <a href="#trust"><span class="en">Trust</span><span class="zh">信任</span></a>
+          <a href="#questions"><span class="en">Questions</span><span class="zh">问答</span></a>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__label"><span class="en">Contact</span><span class="zh">联系</span></p>
+          <a href="mailto:care@softlanding.co">care@softlanding.co</a>
+          <a href="#contact"><span class="en">Request a guide</span><span class="zh">预约管家</span></a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p><span class="en">© 2026 SoftLanding. A concept service. Not a licensed legal, funeral, or medical provider.</span><span class="zh">© 2026 安落。概念服务，不构成法律、殡葬或医疗服务。</span> <a class="footer__privacy" href="privacy.html">Privacy / 隐私</a></p>
+        <div class="lang lang--footer">
+          <button class="lang__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+          <span class="lang__sep" aria-hidden="true">/</span>
+          <button class="lang__btn" type="button" data-lang="zh" aria-pressed="true">中文</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
