@@ -151,7 +151,7 @@ DEPLOY.md
 - [ ] 表单通知邮箱能收到信
 - [ ] `care@` 邮箱是真实可收信的
 - [ ] 隐私说明链接在表单下方和页脚都能点
-- [ ] 如果比赛结束、要当真实业务：删掉页脚 “A concept service” 字样
+- [ ] 页脚已写 “Not a licensed legal, funeral, or medical provider”；如果主体资质变化，按实际情况调整
 - [ ] HTTPS 正常（Netlify 自动）
 - [ ] `robots.txt` / `sitemap.xml` 里的域名已替换
 

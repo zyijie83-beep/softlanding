@@ -92,12 +92,22 @@
   }, { passive: true });
   onScroll();
 
+  var mainEl = document.getElementById('main');
+  var footerEl = document.querySelector('.footer');
+
+  function setPageInert(inert) {
+    [mainEl, nav, footerEl].forEach(function (el) {
+      if (el) el.inert = inert;
+    });
+  }
+
   function openMenu() {
     if (!menu || !menuBtn) return;
     menu.classList.add('is-open');
     menu.setAttribute('aria-hidden', 'false');
     menuBtn.setAttribute('aria-expanded', 'true');
     document.body.classList.add('menu-open');
+    setPageInert(true);
     if (menuClose) menuClose.focus();
   }
 
@@ -107,6 +117,7 @@
     menu.setAttribute('aria-hidden', 'true');
     menuBtn.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-open');
+    setPageInert(false);
     if (returnFocus) menuBtn.focus({ preventScroll: true });
   }
 
@@ -137,32 +148,67 @@
     var target;
     try { target = document.querySelector(window.location.hash); } catch (e) { return; }
     if (!target) return;
-    var top = target.getBoundingClientRect().top + window.pageYOffset - 82;
     var previous = document.documentElement.style.scrollBehavior;
     document.documentElement.style.scrollBehavior = 'auto';
-    window.scrollTo(0, Math.max(0, top));
+    target.scrollIntoView({ behavior: 'auto', block: 'start' });
+    if (target.classList.contains('section')) target.classList.add('is-entered');
     document.documentElement.style.scrollBehavior = previous;
   }
   window.addEventListener('load', function () { window.setTimeout(jumpToHash, 40); });
 
   /* ------------------------------------------------------------
-     Scroll reveal
+     Page-turn: one authored entrance per section
      ------------------------------------------------------------ */
-  var reveals = document.querySelectorAll('.reveal');
+  var isFlat = false;
+  try { isFlat = new URLSearchParams(window.location.search).has('flat'); } catch (e) {}
 
-  if ('IntersectionObserver' in window) {
-    var revealObserver = new IntersectionObserver(function (entries) {
+  var chapterSections = document.querySelectorAll('.section');
+
+  if (!isFlat && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js');
+
+    var chapterObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-entered');
+        chapterObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+
+    chapterSections.forEach(function (section) { chapterObserver.observe(section); });
+  }
+
+  /* A scroll-position fallback keeps the chapter entrance reliable in
+     embedded views and browsers where the observer is throttled. */
+  if (document.documentElement.classList.contains('js')) {
+    var revealFrame = null;
+
+    var revealVisibleChapters = function () {
+      revealFrame = null;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+
+      chapterSections.forEach(function (section) {
+        if (section.classList.contains('is-entered')) return;
+        var rect = section.getBoundingClientRect();
+        if (rect.top < vh * 0.94 && rect.bottom > vh * 0.06) {
+          section.classList.add('is-entered');
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    };
 
-    reveals.forEach(function (el) { revealObserver.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    var requestReveal = function () {
+      if (revealFrame) return;
+      revealFrame = window.requestAnimationFrame(revealVisibleChapters);
+    };
+
+    window.addEventListener('scroll', requestReveal, { passive: true });
+    window.addEventListener('resize', requestReveal);
+    window.setTimeout(revealVisibleChapters, 120);
+
+    /* A short poll covers programmatic scrolls and embedded engines that
+       throttle both IntersectionObserver and the scroll event. */
+    var chapterPoll = window.setInterval(revealVisibleChapters, 350);
+    window.setTimeout(function () { window.clearInterval(chapterPoll); }, 12000);
   }
 
   /* ------------------------------------------------------------
@@ -176,12 +222,54 @@
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         navLinks.forEach(function (link) {
-          link.classList.toggle('is-active', link.getAttribute('href') === '#' + entry.target.id);
+          var active = link.getAttribute('href') === '#' + entry.target.id;
+          link.classList.toggle('is-active', active);
+          if (active) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
         });
       });
     }, { rootMargin: '-38% 0px -52% 0px', threshold: 0 });
 
     sections.forEach(function (section) { spy.observe(section); });
+  }
+
+  /* ------------------------------------------------------------
+     Reading progress
+     ------------------------------------------------------------ */
+  var progressBar = document.querySelector('.scroll-progress span');
+  var hero = document.querySelector('.hero');
+  var heroHeight = hero ? hero.offsetHeight : 0;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (progressBar || hero) {
+    var progressTick = false;
+
+    var paintProgress = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var ratio = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+
+      if (progressBar) progressBar.style.transform = 'scaleX(' + ratio + ')';
+
+      if (hero && !isFlat && !reduceMotion) {
+        var heroRatio = heroHeight > 0 ? Math.min(1, Math.max(0, window.pageYOffset / heroHeight)) : 0;
+        hero.style.setProperty('--hero-shift', heroRatio.toFixed(4));
+      }
+
+      progressTick = false;
+    };
+
+    window.addEventListener('scroll', function () {
+      if (progressTick) return;
+      progressTick = true;
+      window.requestAnimationFrame(paintProgress);
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      heroHeight = hero ? hero.offsetHeight : 0;
+      paintProgress();
+    });
+
+    paintProgress();
   }
 
   /* ------------------------------------------------------------
